@@ -1,6 +1,6 @@
 # Pyreact UI Builder Skill
 
-这是一个纯 OpenCode skill 仓库，用于指导 agents 在网易我的世界基岩版 ModSDK 环境中使用 Pyreact 编写业务 UI。完整规则、组件规范和示例写法以 [`SKILL.md`](SKILL.md) 为准。
+这是一个面向任意 agent 的 Pyreact UI 编写 skill 仓库，用于指导 agents 在网易我的世界基岩版 ModSDK 环境中使用 Pyreact 编写业务 UI。完整规则、组件规范和示例写法以 [`SKILL.md`](SKILL.md) 为准。
 
 ## 适用场景
 
@@ -38,17 +38,16 @@ PyreactExampleScript/
 
 ## 使用方式
 
-在支持 OpenCode skill 的环境中，将本仓库作为 skill 仓库加载。Agent 接到 Pyreact UI 任务时应读取 `SKILL.md`，按其中的 props / `style` 分工、Python2 语法、稳定 `key`、标准挂载流程和网易 ModSDK 约束执行。
+在支持自定义 skill / knowledge / instruction 资源的 agent 环境中，将本仓库作为 Pyreact UI skill 加载。Agent 接到 Pyreact UI 任务时应读取 `SKILL.md`，按其中的 props / `style` 分工、Python2 语法、稳定 `key`、标准挂载流程和网易 ModSDK 约束执行。
 
 ### 让 Agent 自我安装
 
-将下面内容复制给支持文件操作的 agent，让它把本仓库安装到自己的 OpenCode skills 目录：
+将下面内容复制给支持文件操作的 agent，让它把本仓库安装到自己的可加载 skill / knowledge 目录：
 
 ```text
-请把这个仓库安装为 OpenCode skill：
+请把这个仓库安装为可加载的 Pyreact UI skill：
 
-1. 克隆仓库到你的 skills 目录，目录名保持为 pyreact-ui-builder。
-   例如：~/.config/opencode/skills/pyreact-ui-builder
+1. 克隆仓库到你的 agent 可加载的 skills、knowledge 或 instructions 目录，目录名建议保持为 pyreact-ui-builder。
 2. 确认仓库根目录存在 SKILL.md。
 3. 确认 JsonUI/、pyreact/、PyreactRuntimeScript/、PyreactExampleScript/ 与 SKILL.md 同级。
 4. 后续遇到 Pyreact UI、网易 Minecraft Bedrock ModSDK UI、JsonUI 容器、ScreenNode 挂载、props/style 分工、Animated/hooks/key/ref 相关任务时，优先加载 pyreact-ui-builder skill。
