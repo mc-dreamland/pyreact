@@ -40,6 +40,20 @@ PyreactExampleScript/
 
 在支持 OpenCode skill 的环境中，将本仓库作为 skill 仓库加载。Agent 接到 Pyreact UI 任务时应读取 `SKILL.md`，按其中的 props / `style` 分工、Python2 语法、稳定 `key`、标准挂载流程和网易 ModSDK 约束执行。
 
+### 让 Agent 自我安装
+
+将下面内容复制给支持文件操作的 agent，让它把本仓库安装到自己的 OpenCode skills 目录：
+
+```text
+请把这个仓库安装为 OpenCode skill：
+
+1. 克隆仓库到你的 skills 目录，目录名保持为 pyreact-ui-builder。
+   例如：~/.config/opencode/skills/pyreact-ui-builder
+2. 确认仓库根目录存在 SKILL.md。
+3. 确认 JsonUI/、pyreact/、PyreactRuntimeScript/、PyreactExampleScript/ 与 SKILL.md 同级。
+4. 后续遇到 Pyreact UI、网易 Minecraft Bedrock ModSDK UI、JsonUI 容器、ScreenNode 挂载、props/style 分工、Animated/hooks/key/ref 相关任务时，优先加载 pyreact-ui-builder skill。
+```
+
 最小挂载流程为：
 
 1. 在 `UiInitFinished` 中 `RegisterUI(...)`。
@@ -57,4 +71,6 @@ PyreactExampleScript/
 
 ## 许可证
 
-本仓库保留 Pyreact 相关资源的 Apache License 2.0 许可证与归属要求，详见 [`LICENSE`](LICENSE) 和 [`NOTICE`](NOTICE)。
+Pyreact 原项目版权归原作者 EnderWolf006 所有：Copyright 2026 EnderWolf006。原项目地址为 <https://github.com/EnderWolf006/pyreact>。
+
+本仓库保留 Pyreact 相关资源的 Apache License 2.0 许可证与归属要求，详见 [`LICENSE`](LICENSE) 和 [`NOTICE`](NOTICE)。在 Minecraft Bedrock Edition 项目中使用 Pyreact 时，需要按 `NOTICE` 在服务器/存档加载界面和切换维度界面展示 Pyreact、作者 EnderWolf006 与原 GitHub 仓库地址。
