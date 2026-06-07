@@ -6,6 +6,7 @@ metadata:
   audience: agents
   domain: pyreact-ui
   platform: netease-minecraft-bedrock-modsdk
+  repository: pure-skill
 ---
 
 ## 我能做什么
@@ -27,8 +28,23 @@ metadata:
 
 不要在以下场景只依赖本 skill：
 
-- 用户要求修改框架内部实现（`pyreact/core`、`pyreact/layout`、`PyreactRuntimeScript`、`JsonUI/PyreactBase.json`）。这属于开发本库，必须同时遵守仓库根目录 `AGENTS.md`。
+- 用户要求修改框架内部实现（`pyreact/core`、`pyreact/layout`、`PyreactRuntimeScript`、`JsonUI/PyreactBase.json`）。这属于开发 Pyreact 框架资源，不是普通业务 UI 任务。
 - 涉及网易 API / JsonUI 原生能力但文档未确认时。本 skill 只说明 Pyreact 公开用法，不能替代本地知识库查询。
+
+## 仓库结构
+
+本仓库是纯 skill 仓库：`SKILL.md` 位于仓库根目录，所有供本 skill 引用的 Pyreact 资源目录都与 `SKILL.md` 同级。
+
+```text
+SKILL.md
+README.md
+JsonUI/
+pyreact/
+PyreactRuntimeScript/
+PyreactExampleScript/
+```
+
+资源路径均按仓库根目录相对路径引用。
 
 ## 第一原则：这是“用库开发 UI”
 
@@ -51,7 +67,7 @@ metadata:
 
 ### 2. 涉及网易 API / JsonUI 时查文档
 
-必须遵守仓库 `AGENTS.md`：
+必须遵守本 skill 的 Pyreact / 网易 ModSDK 约束：
 
 - UI 控件操作、JsonUI、系统通信、PaperDoll 等网易 API 先查本地知识库。
 - 跨系统调用使用 `clientApi.GetSystem(...)` / `serverApi.GetSystem(...)`，不要直接 import 其他模组系统。
